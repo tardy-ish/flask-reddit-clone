@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home Page</title>
+<style>
+    body {
+        background: #dae0e6 !important;
+        margin-top: 75px !important;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light style"
+    style="background-color: #fff !important; padding: bottom 80px;">
+    <div class="container">
+        <a href="/" class="navbar-brand">FlaskReddit</a>
+        <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="mx-2 my-auto d-inline w-100"
+            style="margin-left: 100px !important; margin: right 100px !important;">
+            <input type="search" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+        </form>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a href="/login" class="nav-item btn btn-outline-primary mx-2">Login</a>
+                <a href="/signup" class="nav-item btn btn-primary">Signup</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <strong>
+                        <button class="btn btn-light btn-sm" style="padding: 4px 0%;">
+                            <i class="bi bi-arrow-up"></i>
+                        </button>
+                        10.5k
+                        <button class="btn btn-light btn-sm" style="padding: 4px 0%;">
+                            <i class="bi bi-arrow-down"></i>
+                        </button>
+                    </strong>
+                    r/Flask <span class="text-muted" style="font-size: 10pt;">Posted by u/tardy-ish 5 hours ago</span>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">This is a pure /s post</h5>
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab eius, perferendis autem a laborum
+                        porro nam sit ad laboriosam fugit quas itaque officiis, aspernatur inventore maxime vero
+                        quibusdam, iste possimus!
+                    </p>
+                </div>
+                <div class="card-footer text-muted">
+                    <a href="" class="btn btn-light btn-sm"><i class="bi bi-chat-left"></i> 0 Comments</a>
+                    <a href="" class="btn btn-light btn-sm"><i class="bi bi-share-fill"></i> Share</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">r/Popular</h5>
+                    <p class="card-text">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex in dicta obcaecati dolore fugit
+                        nostrum amet veritatis non rerum harum expedita alias, sunt eaque molestiae fugiat commodi
+                        nesciunt similique natus.
+                    </p>
+                    <a href="/" class="btn btn-primary btn-block">Create Post</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

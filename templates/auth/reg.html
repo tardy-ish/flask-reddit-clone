@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{%block head %}
+<title>FlaskReddit - Signup</title>
+<style>
+    body {
+        background: #dae0e6 !important;
+        margin-top: 200px !important;
+    }
+
+    .form-control {
+        margin-bottom: 5px;
+    }
+</style>
+{% endblock %}
+
+{%block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Sign Up
+                </div>
+                <div class="card-body">
+                    <form class="form" action="/signup" method="POST">
+                        <input type="text" class="form-control" placeholder="Username" name="username">
+                        <input type="email" class="form-control" placeholder="Email" name="email">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
+                        <input type="password" class="form-control" placeholder="Confirm Password">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
