@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {%block head %}
-<title>FlaskReddit - Signup</title>
+<title>FlaskReddit - Login</title>
 <style>
     body {
         background: #dae0e6 !important;
-        margin-top: 100px !important;
+        margin-top: 200px !important;
     }
 
     .form-control {
@@ -25,41 +25,24 @@
         </button>
     </div>
 </nav>
-{% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
-<ul class=flashes style="margin: 0px; list-style-type:none;">
-    {% for category, message in messages %}
-    <li>
-        <div class="alert alert-{{category}}">{{ message }}</div>
-    </li>
-    {% endfor %}
-</ul>
-{%else%}
-<div class="some-space" style="border: 100px;"></div>
-{% endif %}
-{% endwith %}
 <div class="container">
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    Sign Up
+                    Login
                 </div>
                 <div class="card-body">
-                    <form class="form" action="/signup" method="POST">
-                        <input type="text" class="form-control" placeholder="Username" name="username"
-                            value="{{form_data['username']}}">
-                        <input type="email" class="form-control" placeholder="Email" name="email"
-                            value="{{form_data['email']}}">
+                    <form class="form" action="/login" method="POST">
+                        <input type="text" class="form-control" placeholder="Username" name="username">
                         <input type="password" class="form-control" placeholder="Password" name="password">
-                        <input type="password" class="form-control" placeholder="Confirm Password" name="conf_pass">
                         <br>
-                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
                     </form>
                 </div>
                 <div class="card-footer text-muted">
-                    Already have an account?<a href="/login" style="padding: 6px 2px;">Login</a>
+                    New here?<a href="/signup" style="padding: 6px 2px;">Sign Up</a>
                 </div>
             </div>
         </div>
