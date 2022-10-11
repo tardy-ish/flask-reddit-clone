@@ -25,22 +25,22 @@
         </button>
     </div>
 </nav>
-{% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
-<ul class=flashes style="margin: 0px; list-style-type:none;">
-    {% for category, message in messages %}
-    <li>
-        <div class="alert alert-{{category}}">{{ message }}</div>
-    </li>
-    {% endfor %}
-</ul>
-{%else%}
-<div class="some-space" style="border: 100px;"></div>
-{% endif %}
-{% endwith %}
+
 <div class="container">
     <div class="row">
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="float-start flashes" style="margin: 0px; list-style-type:none;">
+                {% for category, message in messages %}
+                <li>
+                    <div class="alert alert-{{category}}">{{ message }}</div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
@@ -52,8 +52,10 @@
                             value="{{form_data['username']}}">
                         <input type="email" class="form-control" placeholder="Email" name="email"
                             value="{{form_data['email']}}">
-                        <input type="password" class="form-control" placeholder="Password" name="password">
-                        <input type="password" class="form-control" placeholder="Confirm Password" name="conf_pass">
+                        <input type="password" class="form-control" placeholder="Password" name="password"
+                            value="{{form_data['password']}}">
+                        <input type="password" class="form-control" placeholder="Confirm Password" name="conf_pass"
+                            value="{{form_data['conf_pass']}}">
                         <br>
                         <button type="submit" class="btn btn-primary">Sign Up</button>
                     </form>
@@ -64,5 +66,4 @@
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}

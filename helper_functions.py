@@ -18,7 +18,7 @@ def uname_check(txt):
     return True
 
 
-def exist_in_db(table_name,column_name,data):
-    if table_name.query.filter_by(**{column_name:data}).count():
-        return True
-    return False
+def db_table(table_name):
+    def leCount(args):
+        return table_name.query.filter_by(**args)
+    return leCount
