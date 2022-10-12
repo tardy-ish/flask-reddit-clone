@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, flash, render_template, request, redirect
+from flask import Flask, flash, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from config import DevelopmentConfig
@@ -36,6 +36,8 @@ def index():
 
 @app.route('/signup', methods =['GET', 'POST'])
 def signup():
+    if "user" in session:
+        return redirect('/')
     form_data = {
         'username':"",
         'email':"",
@@ -124,6 +126,8 @@ def signup():
 
 @app.route('/login',methods = ['GET','POST'])
 def login():
+    if 'user' in session:
+        return redirect('/')
     form_data = {
         'username':"",
         'password':""
@@ -154,8 +158,22 @@ def login():
             return render_template('auth/signin.html', form_data = form_data)
         
         print("Logged in successfully")
+        session["user"] = _username
 
     return render_template('auth/signin.html', form_data = form_data)
+
+@app.route('/logout',methods = ['GET'])
+def logout():
+    session.pop('user',None)
+    return redirect('/')
+
+
+@app.route('/u/<_username>',methods = ['GET'])
+def user_pages(_username):
+    if _username == session["user"]:
+        return render_template("user/self_user.html",uname=_username)
+    else:
+        return render_template("user/user_profile.html",uname=_username)
 
 if __name__ == '__main__':
     app.run()

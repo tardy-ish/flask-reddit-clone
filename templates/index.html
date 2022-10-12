@@ -23,10 +23,18 @@
             <input type="search" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
         </form>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            {% if 'user' in session %}
+            <div class="navbar-nav">
+                <a href="/u/{{session['user']}}" class="btn btn-light">u/{{session['user']}}</a>
+                <a href="/logout" class="btn btn-light">Logout</a>
+
+            </div>
+            {% else %}
             <div class="navbar-nav">
                 <a href="/login" class="nav-item btn btn-outline-primary mx-2">Login</a>
                 <a href="/signup" class="nav-item btn btn-primary">Signup</a>
             </div>
+            {% endif %}
         </div>
     </div>
 </nav>
